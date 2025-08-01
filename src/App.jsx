@@ -1,16 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState } from 'react';
+import './index.css'; 
 
-
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [city, setCity] = useState("");
+  const [weather, setWeather] = useState(null);
+  const [error, setError] = useState("");
 
   return (
-    <>
-      <div>Hello</div>
-    </>
-  )
-}
+    <div className="app-container">
+      
+      <div className="navbar">
+        <div className="logo">🌤 Weather App</div>
+        <ul className="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Forecast</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search city..."
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+          <button>Search</button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default App
+export default App;
